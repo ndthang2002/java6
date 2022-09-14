@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <h1>Restful consumer-AngularJS</h1>
+    <form>
+        <input type="text" placeholder="email address?" ng-model="form.email"><br>
+        <input type="text" placeholder="fullname?" ng-model="form.fullname"><br>
+        <input type="text" placeholder="Average Marks?"  ng-model="form.marks"><br>
+        <input type="radio" name="gender" ng-model="form.gender" ng-value="true">male
+        <input type="radio" name="gender" ng-model="form.gender" ng-value="false">female
+        <br>
+        <select name="" id="" ng-model="form.country">
+            <option value="vn">viet nam</option>
+            <option value="tq">trung quoc</option>
+        </select>
+        <hr>
+        <button  ng-click="create()">create</button>
+        <button  ng-click="update()">update</button>
+        <button  ng-click="delete(form.email)">delete</button>
+        <button  ng-click="reset()">reset</button>
+    </form>
+
+    
+    <table border="1">
+  <tr>
+    <th>Email Address</th>
+    <th>Full Name</th>
+    <th>Marks</th>
+    <th>Gender</th>
+    <th>Country</th>
+    <th></th>
+  </tr>
+
+  <tr ng-repeat="sv in items">
+    <td>{{sv.email}}</td>
+    <td>{{sv.fullname}}</td>
+    <td>{{sv.marks}}</td>
+    <td>{{sv.gender?'male':'female'}}</td>
+    <td>{{sv.country}}</td>
+    <td>
+        <button ng-click="edit(sv.email)">edit</button> 
+        <button ng-click="delete(sv.email)"> delete</button> 
+    </td>
+  </tr>
+
+    </table>
+    <script src="crud-ctrl.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>	
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<nav th:replace="~{/home/_menu :: nav}"></nav>
+<hr>
+<h2  th:text=${message}> </h2>
+<hr>
+<h3 sec:authorize="!isAuthenticated()">
+chua dang nhap
+</h3>
+<ul sec:authorize="isAuthenticated()">
+<li sec:authorize="hasRole('ADMIN')">ADMIN</li>
+<li sec:authorize="hasAnyRole('ADMIN','USER')">ADMIN Or <user>																</user></li>
+<li sec:authorize="hasRole('GUEST')">GUEST</li>
+</ul>
+</body>
+</html>

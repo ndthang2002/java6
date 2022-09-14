@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3> thymeleaf flow control attributes</h3>
+<ul>
+  <li th:each="sv, state:${dssv}">
+   <a th:href= "@{|/student2/list?index=${state.index}|}">[(${sv.name})]</a>
+   </li>
+ </ul>
+ <h3> Student Details</h3>
+ <ul th:object="${sv}">
+ <li> <i>Name:</i> <b th:text="*{name}"></b></li>
+  <li> <i>marks:</i> <b th:text="*{marks}"></b></li>
+   <li> <i>email:</i> <b th:text="*{contact.email}"></b></li>
+   <li><i>Subjects:</i></li>
+   <ul>
+  <li th:each="subject:*{subjects}"><b th:text="${subject}"></b>  </li>
+  <li>  </li>
+</ul>
+  
+<li  th:switch="*{#arrays.length(subjects)}">
+   <i>Time</i>
+   <b th:case="1"> moi vao </b>
+   <b th:case="2">dang hoc</b>
+   <b th:case="*"> spa ra truong</b>
+</li>
+<li th:if="*{marks}>9"><i>Title:</i> <b>Golden Bee</b></li>
+<th:block th:unless="*{marks}>9"> 
+    <li th:if="*{marks}>8"><i>Title:</i> <b>good</b> </li>
+    <th:block th:unless="*{marks}>8">
+            <li th:if="*{marks}>7"> <i>Title:</i> <b>kha</b></li>
+            <th:block th:unless="*{marks}>7">
+            <li th:switch="*{marks>=5}">
+             <b  th:case="true"> passed</b>
+              <b  th:case="false"> failed</b>
+            </li>
+            </th:block>
+    </th:block>
+</th:block>
+
+
+
+
+
+ </ul>
+</body>
+</html>

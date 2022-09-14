@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg bg-light " >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/product/list">HOME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       
+       	  <th:block th:if="${#request.remoteUser}">
+          
+          <a class="nav-link" th:href="@{/security/logoff}">Sign Out</a>
+          <a class="nav-link" th:href="@{/order/list}">Your Orders</a>
+         
+          	 <div th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+				<a class="nav-link" th:href="@{/admin/home/index}">Administration</a>
+			</div>
+        </th:block>
+        <th:block th:unless="${#request.remoteUser}">
+       
+        <a class="nav-link "  th:href="@{/security/login/form}">Sign In</a> 
+        </th:block>
+        <ul th:if="${#request.remoteUser}" class="nav navbar-nav navbar-right" style="float: right">
+        <li><a style="text-decoration: none;color: black" href="#"> WelCome [[${#request.remoteUser}]]</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

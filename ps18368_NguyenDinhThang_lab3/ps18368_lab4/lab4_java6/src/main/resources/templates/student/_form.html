@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:object="${form}" method="post">
+
+<input th:field="*{email}" placeholder="Email Address?"> <br>
+<input th:field="*{fullname}" placeholder="Full name"> <br>
+<input th:field="*{marks}" placeholder="Average Marks?"> <br>
+<input th:field="*{gender}" value="true" type="radio" >male <br>
+<input th:field="*{gender}" value= "false" type="radio" >Female <br>
+<select th:field="*{country}">
+  <option th:value="VN">viet nam</option>
+   <option th:value="TQ">trung quoc</option>
+  
+
+</select>
+<hr>
+<button th:formaction="@{/student/create}">create</button>
+<button th:formaction="@{|/student/update/${key}|}">Update</button>
+<button th:formaction="@{|/student/delete/${key}|}">delete</button>
+<button th:formaction="@{/student/index}">Reset</button>
+
+
+
+</form>
+</body>
+</html>

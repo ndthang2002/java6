@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index::dynamic(~{::main})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<main>
+  <div class="panel panel-primary border mt-5" style="background-color:gray; " th:fragment="shopping-cart">
+    <div class="panel-heading">Shopping Cart </div>  
+    
+    <table class="table">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Amount</th>
+      <th></th>
+      </tr>    	
+    </thead>
+    
+    <tbody>
+       <tr ng-repeat="item in cart.items">
+       <td>{{item.id}}</td>
+       <td>{{item.name}}</td>
+       <td>{{item.price|number:2}}</td>
+       <td><input type="number" min="1" ng-model="item.qty"/></th>
+       <td>{{item.qty*item.price | number:2}}</td>
+       <td>
+       <button ng-click="cart.remove(item.id)" style="background: transparent;border: none;">
+       <i class="fas fa-trash" style="color: red"></i>
+       </button>
+       </td>
+       </tr>
+    </tbody>
+    
+    </table>
+    <div class="panel-footer">
+    <button ng-click="cart.clear()" class="btn btn-danger">
+    Clear
+    </button>
+  <a th:href="@{/order/checkout}" class="btn btn-primary">
+    Checkout
+    </a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

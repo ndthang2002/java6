@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index::dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+</head>
+<body>
+
+	<main class="row">
+
+		<div th:each="p:${items}" class="col-sm-4 p-2">
+
+			<div class="card text-center" style="height: 400px;">
+				<div class="card-header bg-success">[[${p.name}]] </div>
+				<div class="card-body">
+					<lable> <a th:href="@{|/product/detail/${p.id}|}"> <img
+						th:src="@{|/assets/images/${p.image}|}" alt="" style="width: 100%" /></a>
+					</lable>
+
+				</div>
+				
+				<div class="card-footer text-muted bg-dark">
+					<b class="pull-left gia" style="color: white;">$[[${p.price}]]</b>
+				
+						    <a th:attr="ng-click=@{|cart.add(${p.id})|}"> <i class="fas fa-cart-plus m-1" style="color:green "></i></a>
+							<a href=""><i class="fas fa-heart m-1" style="color:white; "></i> </a> 
+							<a href=""> <i class="fas fa-shopping-bag m-1" style="color:yellow; "></i></a>		
+				
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+</html>

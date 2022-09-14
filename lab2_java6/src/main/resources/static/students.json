@@ -1,0 +1,49 @@
+[
+{
+  "name":"Nguyễn Văn Tèo",
+  "gender":true,
+  "marks":5,
+  "subjects":["WEB205","COM108","hhah"],
+  "contact":{
+ 
+     "email":"teonv@gmail.com",
+     "phone":"0913745789"
+     }
+     },
+     {
+  "name":"Nguyễn dinh thang",
+  "gender":true,
+  "marks":4,
+
+  "subjects":["WEB205","COM108","aaaa"],
+  "contact":{
+ 
+     "email":"teonv@gmail.com",
+     "phone":"0913745789"
+     }
+     },
+     {
+  "name":"tran thi lan",
+  "gender":true,
+  "marks":7.5,
+
+  "subjects":["WEB205","COM108","hihi"],
+  "contact":{
+ 
+     "email":"teonv@gmail.com",
+     "phone":"0913745789"
+     }
+     },
+          {
+  "name":"pham thi thuy",
+  "gender":false,
+  "marks":9.5,
+
+  "subjects":["WEB205"],
+  "contact":{
+ 
+     "email":"thuy@gmail.com",
+     "phone":"0913225789"
+     }
+     }
+]
